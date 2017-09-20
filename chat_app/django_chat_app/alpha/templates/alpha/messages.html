@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<title></title>
+</head>
+<body>
+
+
+
+{% for obj in chat %}
+    {% if obj.user == request.user %}
+    	{% if obj.sentence_type  == "it's negative sentence" %}
+        	<li class="text-right list-group-item" style="color: red">{{ obj.user }} : {{ obj.message }} </li>
+        {% elif obj.sentence_type  == "it's positive sentence" %}
+        	<li class="text-right list-group-item" style="color: blue">{{ obj.user }} : {{ obj.message }} </li>
+        {% else %}
+        	<li class="text-right list-group-item" >{{ obj.user }} : {{ obj.message }} </li>
+    	{% endif %}
+    {% else %}
+    	{% if obj.sentence_type  == "it's negative sentence" %}
+        	<li class="text-left list-group-item" style="color: red">{{ obj.user }} : {{ obj.message }} </li>
+        {% elif obj.sentence_type  == "it's positive sentence" %}
+        	<li class="text-left list-group-item" style="color: blue">{{ obj.user }} : {{ obj.message }} </li>
+        {% else %}
+        	<li class="text-left list-group-item" >{{ obj.user }} : {{ obj.message }} </li>
+        {% endif %}
+    {% endif %}
+{% empty %}
+    <li class="text-right list-group-item">No messages yet!</li>
+{% endfor %}
+
+</body>
+</html>

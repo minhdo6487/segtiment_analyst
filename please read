@@ -1,0 +1,7 @@
+    segtiment analyst
+    yaml in data_segtiment is a tokenize
+    segtiment_analyst.py is spliter tokenize
+    dictionaty_tagger.py is mesure
+    
+    => try use fuzzy
+    => and frequncy with word
